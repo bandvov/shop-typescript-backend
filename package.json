@@ -9,19 +9,15 @@
     "url": "https://github.com/bandvov/shop-typescript.git"
   },
   "keywords": [],
-  "engines": {
-    "node": "v>=12.*.*"
-  },
   "scripts": {
     "build": "tsc",
-    "start": "node .",
-    "prestart": "npm run build",
+    "start": "node ./dist/index.js",
     "server:watch": "ts-node-dev --respawn --transpile-only index.ts",
     "lint": "eslint --cache --ext .ts .",
     "lint:fix": "eslint --cache --ext .ts . --fix --color",
-    "prebuild": "npm run lint:fix",
     "test:unit": "jest --config=jest.config.js --color",
-    "prettier": "prettier . --write"
+    "prettier": "prettier . --write",
+    "postinstall": "npm run build"
   },
   "author": "Volodymyr Vasylkiv",
   "license": "ISC",
