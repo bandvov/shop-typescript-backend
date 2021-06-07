@@ -11,11 +11,11 @@ import productRouter from './routes/product';
 export const app = express();
 
 connectDb();
-
+const origin = process.env.NODE_ENV === 'production' ? 'https://shop-ts.netlify.app' : 'http://localhost:3000';
 app.disable('x-powered-by');
 app.use(
   cors({
-    origin: 'http://localhost:3000',
+    origin,
     credentials: true,
     methods: ['POST', 'PUT', 'GET', 'OPTIONS', 'HEAD'],
   }),
