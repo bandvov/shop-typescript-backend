@@ -1,0 +1,24 @@
+on:
+  push:
+    branches: [ main, development ]
+  pull_request:
+    branches: [ main, development ]
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+ 
+    - name: Install dependencies
+      run: npm install
+      
+    - name: test
+      env:
+       MONGO_USER: ${{ secrets.MONGO_USER }}
+       MONGO_PASSWORD: ${{ secrets.MONGO_PASSWORD }}
+       MONGO_TEST_DB: ${{ secrets.MONGO_TEST_DB }}
+       SALT: ${{ secrets.SALT }}
+       JWT_SALT: ${{ secrets.JWT_SALT }}
+       JWT_EXPIRES_IN: ${{ secrets.JWT_EXPIRES_IN }}       
+      run: npm run test:unit
