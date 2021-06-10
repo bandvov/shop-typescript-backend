@@ -22,9 +22,7 @@ export const getProductsForCatalog = async (req, res) => {
         description: 0,
         favorites: 0,
         colors: 0,
-        images: 0,
         thumbnails: 0,
-        sizes: 0,
         linenBox: 0,
         usbCharger: 0,
         removableCover: 0,
@@ -71,7 +69,9 @@ export const addProduct = async (req: Request, res: Response) => {
     legsMaterial,
     linenBox,
     seating,
-    sizes,
+    width,
+    height,
+    depth,
     sleepingPlace,
     removableCover,
     thumbnails,
@@ -98,7 +98,9 @@ export const addProduct = async (req: Request, res: Response) => {
     | 'legsMaterial'
     | 'linenBox'
     | 'seating'
-    | 'sizes'
+    | 'width'
+    | 'height'
+    | 'depth'
     | 'sleepingPlace'
     | 'removableCover'
     | 'thumbnails'
@@ -131,7 +133,9 @@ export const addProduct = async (req: Request, res: Response) => {
     linenBox,
     seating,
     sku: skuGenerator([name, brand, category]),
-    sizes,
+    width,
+    height,
+    depth,
     sleepingPlace,
     removableCover,
     thumbnails,
@@ -177,7 +181,9 @@ export const updateProduct = async (req: Request, res: Response) => {
     legsMaterial = '',
     linenBox = false,
     seating = false,
-    sizes = [],
+    width = '',
+    height = '',
+    depth = '',
     sleepingPlace = false,
     removableCover = false,
     thumbnails = [],
@@ -204,7 +210,9 @@ export const updateProduct = async (req: Request, res: Response) => {
     | 'legsMaterial'
     | 'linenBox'
     | 'seating'
-    | 'sizes'
+    | 'width'
+    | 'height'
+    | 'depth'
     | 'sleepingPlace'
     | 'removableCover'
     | 'thumbnails'
@@ -235,7 +243,9 @@ export const updateProduct = async (req: Request, res: Response) => {
       linenBox,
       seating,
       sku: skuGenerator([name, brand, category]),
-      sizes,
+      width,
+      height,
+      depth,
       sleepingPlace,
       removableCover,
       thumbnails,
