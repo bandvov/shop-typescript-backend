@@ -13,7 +13,9 @@ export interface IProduct extends Document {
   colors: string[];
   images: string[];
   thumbnails: string[];
-  sizes: string[];
+  width: string;
+  height: string;
+  depth: string;
   sleepingPlace: boolean;
   seating: boolean;
   frame: string;

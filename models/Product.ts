@@ -54,8 +54,16 @@ const productSchema = new Schema(
     thumbnails: {
       type: [String],
     },
-    sizes: {
-      type: [String],
+    width: {
+      type: String,
+      required: true,
+    },
+    height: {
+      type: String,
+      required: true,
+    },
+    depth: {
+      type: String,
       required: true,
     },
     sleepingPlace: {
