@@ -34,6 +34,7 @@ export const getProductsForCatalog = async (req, res) => {
     },
     { $skip: skip },
     { $limit: limit },
+
   ]);
 
   res.status(200).json({ products });
@@ -275,4 +276,20 @@ export const deleteProduct = async (req: Request, res: Response) => {
     return res.status(404).json({ message: 'Product not found' });
   }
   return res.status(200).json({ message: 'Product successfully deleted' });
+};
+
+export const findProducts = async (req, res) => {
+  const search = req.body.search || '';
+  const filter:Filter = {};
+
+  filter.$or = [
+    { brand: { $in: search.split(' ').map((value) => RegExp(value, 'i')) } },
+    { name: { $in: search.split(' ').map((value) => RegExp(value, 'i')) } },
+    { category: { $in: search.split(' ').map((value) => RegExp(value, 'i')) } },
+    { description: { $in: search.split(' ').map((value) => RegExp(value, 'i')) } },
+  ];
+
+  const products = await Product.find(filter);
+
+  return res.status(200).json(products);
 };
