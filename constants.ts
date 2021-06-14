@@ -11,6 +11,7 @@ export const GET_PRODUCT_ROUTE = '/product/:id';
 export const ADD_PRODUCT_ROUTE = '/product';
 export const DELETE_PRODUCT_ROUTE = '/product/:id';
 export const UPDATE_PRODUCT_ROUTE = '/product/:id';
+export const SEARCH_PRODUCTS_ROUTE = '/product-search';
 
 export const EMAIL_REGEXP = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 export const NAME_REGEXP = /^([ \u00c0-\u01ffa-zA-Z'\-]+){2,}$/;
